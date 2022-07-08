@@ -29,7 +29,7 @@
             $mail->Subject = 'Password Reset Link From Ram Dudhaiya UBS';
             $mail->Body    = "We got a request from you to reset your password! <br>
                 Click the link below: <br>
-                <a href='http://localhost/student/updateforgotpassword.php?email=$email&reset_token=$reset_token'>
+                <a href='http://localhost/student/Ram/updateforgotpassword.php?email=$email&reset_token=$reset_token'>
                 Reset Password
                 </a>";
         
