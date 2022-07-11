@@ -56,7 +56,7 @@
     ?>
     <div class="image">
         <figure>
-                <img src="./image/<?php echo $row['filename'];?>"  width="120" height="120">
+                <img src="./image/<?php echo $row['filename'];?>"  max-width="120" height="120">
         </figure>
             </div><br>
     <div class="form-group my-3">

@@ -196,6 +196,11 @@ body{
     font-size: 22px;
 }
 figure > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     border: 1px solid #333;
     -webkit-transform: scale(1);
     transform: scale(1);

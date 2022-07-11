@@ -16,7 +16,7 @@ include 'includes/header.php';
     <?php
         include 'includes/config.php';
 
-        $limit = 8;
+        $limit = 10;
         if (isset($_REQUEST["page"])) 
         {
             $page_number = $_REQUEST["page"]; 
