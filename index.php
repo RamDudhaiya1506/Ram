@@ -76,7 +76,7 @@ include 'includes/header.php';
                 <td><?php echo $row['sphone'];?></td>
                 <td>
                     <figure>
-                        <img src="./image/<?php echo $row['filename'];?>"  width="100" height="90">
+                        <img src="./image/<?php echo $row['filename'];?>"  width="100" height="100" object-fit: center;>
                     </figure>
                 </td>
                 <td>

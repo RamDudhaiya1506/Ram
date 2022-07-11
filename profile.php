@@ -12,7 +12,9 @@
         $country=$_POST['country']; 
         $email=$_SESSION['email'];
         $targetDir = "image/";
+        $time = date("d-m-Y")."-".time();
         $fileName = basename($_FILES['file']['name']);
+        $fileName = $time."-".$fileName ;
         $targetFilePath = $targetDir . $fileName;
         $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
         $allowTypes = array('jpg','png','jpeg','gif','pdf');
@@ -87,7 +89,7 @@
                     {
             ?>
             <div class="image">
-                    <img src="./image/<?php echo $row['filename'];?>"  width="120" height="130" alt="">
+                    <img src="./image/<?php echo $row['filename'];?>"  width="120" height="120" alt="">
             </div>
             <div class="form-group my-3">
                 <label class="control-label">Full Name</label>
@@ -124,7 +126,7 @@
                 <label class="control-label" style="color: #000;">Update Date - <?php echo $row['update date'];?></label>
             </div>
             <div class="form-group">
-                <input class="" type="file" name="file" value="" />
+                <input class="" type="file" name="file" value=""/>
             </div>
             
             <?php

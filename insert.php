@@ -10,7 +10,9 @@
     $stu_class = $_POST['class'];
     $stu_phone = $_POST['sphone'];
     $targetDir = "image/";
+    $time = date("d-m-Y")."-".time();
     $fileName = basename($_FILES['filename']['name']);
+    $fileName = $time."-".$fileName ;
     $targetFilePath = $targetDir . $fileName;
     $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
     $allowTypes = array('jpg','png','jpeg','gif','pdf');

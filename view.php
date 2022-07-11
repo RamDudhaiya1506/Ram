@@ -11,7 +11,9 @@
         $stu_class = $_POST['sclass'];
         $stu_phone = $_POST['sphone'];   
         $targetDir = "image/";
+        $time = date("d-m-Y")."-".time();
         $fileName = basename($_FILES['filename']['name']);
+        $fileName = $time."-".$fileName ;
         $targetFilePath = $targetDir . $fileName;
         $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
         $allowTypes = array('jpg','png','jpeg','gif','pdf');
@@ -19,10 +21,10 @@
             {
                 if(move_uploaded_file($_FILES["filename"]["tmp_name"], $targetFilePath))
                     {
-                        $sql = "UPDATE student SET sname = '$stu_name', saddress = '$stu_address', sclass = '$stu_class', sphone = '$stu_phone', filename='$fileName' WHERE sid = '$stu_id'";
+                        $sql = "UPDATE student SET sname='$stu_name', saddress='$stu_address', sclass='$stu_class', sphone='$stu_phone', filename='$fileName' WHERE sid='$stu_id'";
                         $result = mysqli_query($conn, $sql);
             
-                        header("Location: index.php");
+                        //header("Location: index.php");
                     }
             }       
     }
@@ -43,7 +45,7 @@
     <h2>Update Record</h2>
     <form class="post-form" action="view.php" method="post" enctype="multipart/form-data">
     <?php 
-        $stu_id = $_REQUEST['id'];
+        $stu_id = $_GET['id'];
         $query = "SELECT * FROM student WHERE sid='$stu_id'";
         $showresult = mysqli_query($conn, $query) or die("Query unsuccessful.");
 
@@ -54,7 +56,7 @@
     ?>
     <div class="image">
         <figure>
-                <img src="./image/<?php echo $row['filename'];?>"  width="90" height="90">
+                <img src="./image/<?php echo $row['filename'];?>"  width="120" height="120">
         </figure>
             </div><br>
     <div class="form-group my-3">
