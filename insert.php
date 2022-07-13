@@ -17,18 +17,12 @@
     $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
     $allowTypes = array('jpg','png','jpeg','gif','pdf');
  
-    if(in_array($fileType, $allowTypes))
-    {
-        if(move_uploaded_file($_FILES["filename"]["tmp_name"], $targetFilePath))
-        {
             $sql = "INSERT INTO student(sname, saddress, sclass, sphone, filename, createdate)
             VALUES('{$stu_name}', '{$stu_address}', '{$stu_class}', '{$stu_phone}', '{$fileName}', current_timestamp())";
             $result = mysqli_query($conn, $sql) or die("Query unsuccessful.");
 
             header("Location: index.php");
-        }
     }
-}
 ?>
 
 
