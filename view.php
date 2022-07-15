@@ -17,11 +17,17 @@
         $targetFilePath = $targetDir . $fileName;
         $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
         $allowTypes = array('jpg','png','jpeg','gif','pdf');
-       
-                        $sql = "UPDATE student SET sname='$stu_name', saddress='$stu_address', sclass='$stu_class', sphone='$stu_phone', filename='$fileName' WHERE sid='$stu_id'";
-                        $result = mysqli_query($conn, $sql);
+
+        if(in_array($fileType, $allowTypes))
+        {
+            if(move_uploaded_file($_FILES["filename"]["tmp_name"], $targetFilePath))
+            {
+                $sql = "UPDATE student SET sname='$stu_name', saddress='$stu_address', sclass='$stu_class', sphone='$stu_phone', filename='$fileName' WHERE sid='$stu_id'";
+                $result = mysqli_query($conn, $sql);
             
-                        header("Location: index.php");
+                //header("Location: index.php");
+            }
+        }
     }
 ?>
 <head>
