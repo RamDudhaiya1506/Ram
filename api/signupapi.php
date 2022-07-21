@@ -28,7 +28,7 @@
             $result = mysqli_query($conn, $sql);
             if ($result)
             {
-                echo json_encode(array("id"=>$id, "name"=>"$name", "email"=> "$email" ));
+                echo json_encode(array("name"=>"$name", "email"=> "$email" ));
                 echo json_encode(array("message"=> "Your Account Has Been Created Successfully, Now You Can Loggedin!",
                                        "status"=> 1));
             }
