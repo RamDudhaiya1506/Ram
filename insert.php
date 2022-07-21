@@ -6,7 +6,7 @@
     if(isset($_POST['insert']))
     {
     $stu_name = $_POST['sname'];
-    $stu_address = $_POST['saddress'];
+    $stu_email = $_POST['semail'];
     $stu_class = $_POST['class'];
     $stu_phone = $_POST['sphone'];
     $targetDir = "image/";
@@ -21,8 +21,8 @@
     {
         if(move_uploaded_file($_FILES["filename"]["tmp_name"], $targetFilePath))
         {
-            $sql = "INSERT INTO student(sname, saddress, sclass, sphone, filename, createdate)
-            VALUES('{$stu_name}', '{$stu_address}', '{$stu_class}', '{$stu_phone}', '{$fileName}', current_timestamp())";
+            $sql = "INSERT INTO student(sname, semail, sclass, sphone, filename, createdate)
+            VALUES('{$stu_name}', '{$stu_email}', '{$stu_class}', '{$stu_phone}', '{$fileName}', current_timestamp())";
             $result = mysqli_query($conn, $sql) or die("Query unsuccessful.");
 
             header("Location: index.php");
@@ -40,8 +40,8 @@
             <input type="text" name="sname" placeholder="Full Name"/>
         </div>
         <div class="form-group">
-            <label>Address</label>
-            <input type="text" name="saddress" placeholder="Address" />
+            <label>Email</label>
+            <input type="email" name="semail" placeholder="Email" />
         </div>
         <div class="form-group">
             <label>Class</label>

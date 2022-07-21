@@ -7,7 +7,7 @@
     {
         $stu_id = $_POST['sid'];
         $stu_name = $_POST['sname'];
-        $stu_address = $_POST['saddress'];
+        $stu_email = $_POST['semail'];
         $stu_class = $_POST['sclass'];
         $stu_phone = $_POST['sphone'];   
         $targetDir = "image/";
@@ -22,7 +22,7 @@
         {
             if(move_uploaded_file($_FILES["filename"]["tmp_name"], $targetFilePath))
             {
-                $sql = "UPDATE student SET sname='$stu_name', saddress='$stu_address', sclass='$stu_class', sphone='$stu_phone', filename='$fileName' WHERE sid='$stu_id'";
+                $sql = "UPDATE student SET sname='$stu_name', semail='$stu_email', sclass='$stu_class', sphone='$stu_phone', filename='$fileName' WHERE sid='$stu_id'";
                 $result = mysqli_query($conn, $sql);
             
                 //header("Location: index.php");
@@ -66,8 +66,8 @@
           <input type="text" name="sname" placeholder="Full Name" value="<?php echo $row['sname']; ?>"/>
       </div>
       <div class="form-group">
-          <label>Address</label>
-          <input type="text" name="saddress" placeholder="Address" value="<?php echo $row['saddress']; ?>"/>
+          <label>Email</label>
+          <input type="email" name="semail" placeholder="Email" value="<?php echo $row['semail']; ?>"/>
       </div>
       <div class="form-group">
           <label>Class</label>

@@ -57,7 +57,7 @@ include 'includes/header.php';
         <thead>
         <th>Id</th>
         <th>Name</th>
-        <th>Address</th>
+        <th>Email</th>
         <th>Class</th>
         <th>Phone</th>
         <th>Image</th>
@@ -71,12 +71,12 @@ include 'includes/header.php';
             <tr>
                 <td><?php echo $row['sid']; ?></td>
                 <td><?php echo $row['sname'];?></td> 
-                <td><?php echo $row['saddress'];?></td>
+                <td><?php echo $row['semail'];?></td>
                 <td><?php echo $row['cname'];?></td>
                 <td><?php echo $row['sphone'];?></td>
                 <td>
                     <figure>
-                        <img src="./image/<?php echo $row['filename'];?>"  width="100" height="100" object-fit: center;>
+                        <img src="./image/<?php echo $row['filename'];?>"  width="75" height="80" object-fit: center;>
                     </figure>
                 </td>
                 <td>
